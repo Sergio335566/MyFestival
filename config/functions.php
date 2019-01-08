@@ -1,4 +1,13 @@
 <?php
+//Ajouter un commentaire
+function addFestival($id, $title, $content)
+{
+  require('config/connect.php');
+  $req = $bdd->prepare('INSERT INTO festivals (id, title, content) VALUES (?, ?, ?)');
+  $req->execute(array($id, $title, $content));
+  $req->closeCursor();
+}
+
 //Récuperer tous les articles
 function getFestivals()
 {
@@ -9,6 +18,7 @@ function getFestivals()
     return $data;
     $req->closeCursor();
 }
+
 //Récuperer un seul article
 function getFestival($id)
 {
@@ -42,4 +52,13 @@ function getComments($id)
   return $data;
   $req->closeCursor();
 }
+
+//Ajouter un commentaire
+// function addUser($username, $email, $password)
+// {
+//   require('config/connect.php');
+//   $req = $bdd->prepare('INSERT INTO comments (festivalId, author, comment, date) VALUES (?, ?, ?, NOW())');
+//   $req->execute(array($festivalId, $author, $comment));
+//   $req->closeCursor();
+// }
  ?>

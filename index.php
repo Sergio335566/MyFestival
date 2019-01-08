@@ -1,6 +1,5 @@
 <?php
 require_once('config/functions.php');
-
 $festivals = getFestivals();
  ?>
 <!DOCTYPE html>
@@ -10,6 +9,8 @@ $festivals = getFestivals();
     <title>MyFestival</title>
   </head>
   <body>
+    <a href="registration/register.php">Créer un compte</a>
+    <a href="registration/login.php">Se connecter</a>
     <h1>Festivals :</h1>
     <?php foreach($festivals as $festival): ?>
       <h2> <?= $festival->title ?></h2>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 try {
-$connect = new PDO ("mysql:host=localhost;dbname=myfestival", "root", "");
+$connect = new PDO ("mysql:host=localhost;dbname=myfestivalbdd", "root", "");
 }
 catch(PDOException $e)
 {
@@ -42,7 +42,7 @@ if(isset($_POST['register'])){
   <head>
     <meta charset="utf-8">
     <title>Créer un compte</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style/style_contact.css">
   </head>
   <body>
     <a href="../index.php">retour à l'accueil</a>

@@ -12,7 +12,7 @@ function addFestival($id, $title, $content)
 function getFestivals()
 {
     require('config/connect.php');
-    $req = $bdd->prepare('SELECT id, title, date FROM festivals ORDER BY id DESC');
+    $req = $bdd->prepare('SELECT id, title, content, date FROM festivals ORDER BY id DESC');
     $req->execute();
     $data = $req->fetchAll(PDO::FETCH_OBJ);
     return $data;
@@ -34,6 +34,7 @@ function getFestival($id)
   header('Location: index.php');
   $req->closeCursor();
 }
+
 //Ajouter un commentaire
 function addComment($festivalId, $author, $comment)
 {
@@ -42,6 +43,16 @@ function addComment($festivalId, $author, $comment)
   $req->execute(array($festivalId, $author, $comment));
   $req->closeCursor();
 }
+
+//Supprimer un commentaire
+function getComment($festivalId, $author, $comment)
+{
+  require('config/connect.php');
+  $req = $bdd->prepare('DELETE FROM comments (festivalId, author, comment, date) VALUES (?, ?, ?, NOW())');
+  $req->execute(array($festivalId, $author, $comment));
+  $req->closeCursor();
+}
+
 //récuperer les commentaires d'un article.
 function getComments($id)
 {
@@ -53,12 +64,4 @@ function getComments($id)
   $req->closeCursor();
 }
 
-//Ajouter un commentaire
-// function addUser($username, $email, $password)
-// {
-//   require('config/connect.php');
-//   $req = $bdd->prepare('INSERT INTO comments (festivalId, author, comment, date) VALUES (?, ?, ?, NOW())');
-//   $req->execute(array($festivalId, $author, $comment));
-//   $req->closeCursor();
-// }
  ?>

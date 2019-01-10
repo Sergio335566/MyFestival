@@ -23,7 +23,7 @@ if(isset($_POST['save'])){
   $_SESSION['message'] = "Votre publication est desormais en ligne";
   $_SESSION['msg_type'] = "success";
 
-  header("location: index.php");
+  header("location: ../users_posts.php");
 }
 // Supprimer un post
 if(isset($_GET['delete'])){
@@ -33,7 +33,7 @@ if(isset($_GET['delete'])){
     $_SESSION['message'] = "Votre publication à été supprimée";
     $_SESSION['msg_type'] = "danger";
 
-  header("location: index.php");
+  header("location: ../users_posts.php");
   }
 
 // Editer un post
@@ -62,7 +62,9 @@ if(isset($_POST['update'])){
     $_SESSION['message'] = "Votre publication à été mise à jour";
     $_SESSION['msg_type'] = "warning";
 
-  header("location: index.php");
+  header("location: ../users_posts.php");
 
 }
+
+
  ?>

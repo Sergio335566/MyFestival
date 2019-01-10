@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="style/style_index.css">
   </head>
   <body>
-
-      <?php require_once('create.php');?>
+<a href="festivals.php">Retour aux publications</a>
+      <?php require_once('config/create_festival.php');?>
       <?php if(isset($_SESSION['message'])): ?>
         <div class="alert alert-<?=$_SESSION['msg_type']?>">
           <?php
@@ -21,6 +21,7 @@
       <?php endif ?>
       <?php $mysqli = new mysqli('localhost', 'root', "", 'myfestivalbdd') or die(mysqli_error($mysqli));
       $result = $mysqli->query("SELECT * FROM festivals") or die($mysqli->error); ?>
+
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-12 posts">
@@ -30,8 +31,8 @@
 <p class='col-3'><?php echo $row['content']; ?></p>
 <p class='col-3'><?php echo $row['date']; ?></p>
 <p class='col-3'><?php echo $row['place']; ?></p>
-<a href="index.php?edit=<?php echo $row['id']; ?>" class="btn btn-info">Modifier</a>
-<a href="index.php?delete=<?php echo $row['id']; ?>" class="btn btn-danger">Supprimer</a>
+<a href="users_posts.php?edit=<?php echo $row['id']; ?>" class="btn btn-info">Modifier</a>
+<a href="users_posts.php?delete=<?php echo $row['id']; ?>" class="btn btn-danger">Supprimer</a>
 <?php endwhile; ?>
 
 <?php
@@ -42,7 +43,7 @@
 
       }?>
 </div>
-      <form class="" method="POST" action="create.php">
+      <form class="" method="POST" action="config/create_festival.php">
           <input type="hidden" name="id" value="<?php echo $id; ?>">
           <div class="form-group">
             <label>Titre de la publication</label>

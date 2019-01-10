@@ -1,6 +1,7 @@
 <?php
 require_once('config/functions.php');
-$festivals = getFestivals();
+$housings = getHousings();
+$festival = getFestival();
  ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -11,22 +12,21 @@ $festivals = getFestivals();
   </head>
   <body>
     <a href="registration/register.php">Créer un compte / Se connecter</a>
-    <a href="users_posts.php">Publier une offre</a>
     <div class="container">
       <div class="row">
 
 
-    <h1>Les festivals</h1>
-    <?php foreach($festivals as $festival): ?>
+    <h1>Les annonces :</h1>
+    <?php foreach($housings as $housing): ?>
       <div class="col-12 posts">
-      <h2> <?= $festival->title ?></h2>
-      <p> <?= $festival->content ?></p>
-      <time><?= $festival->date ?></time>
-      <img src="<?= $festival->photo ?>"</img>
+      <h3> <?= $housing->title ?></h3>
+      <p> <?= $housing->author ?></p>
+      <p> <?= $housing->content ?></p>
+      <time><?= $housing->date ?></time>
       </div>
       <br>
       <br>
-      <a href="festival_posts.php?id=<?= $festival->id ?>">Chercher un logement/un transport</a>
+      <a href="festival.php?id=<?= $festival->id ?>">Lire la suite</a>
     <?php  endforeach; ?>
         </div>
     </div>

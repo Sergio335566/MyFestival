@@ -1,25 +1,16 @@
 <?php
-//Ajouter un commentaire
-function addFestival($id, $title, $content)
-{
-  require('config/connect.php');
-  $req = $bdd->prepare('INSERT INTO festivals (id, title, content) VALUES (?, ?, ?)');
-  $req->execute(array($id, $title, $content));
-  $req->closeCursor();
-}
-
-//Récuperer tous les articles
+//Récuperer tous les festivals
 function getFestivals()
 {
     require('config/connect.php');
-    $req = $bdd->prepare('SELECT id, title, content, date FROM festivals ORDER BY id DESC');
+    $req = $bdd->prepare('SELECT id, title, content, photo, date FROM festivals ORDER BY id DESC');
     $req->execute();
     $data = $req->fetchAll(PDO::FETCH_OBJ);
     return $data;
     $req->closeCursor();
 }
 
-//Récuperer un seul article
+//Récuperer un seul festival
 function getFestival($id)
 {
   require('config/connect.php');
@@ -35,33 +26,68 @@ function getFestival($id)
   $req->closeCursor();
 }
 
-//Ajouter un commentaire
-function addComment($festivalId, $author, $comment)
+//Récuperer tous les posts_housing
+function getHousings()
 {
-  require('config/connect.php');
-  $req = $bdd->prepare('INSERT INTO comments (festivalId, author, comment, date) VALUES (?, ?, ?, NOW())');
-  $req->execute(array($festivalId, $author, $comment));
-  $req->closeCursor();
+    require('config/connect.php');
+    $req = $bdd->prepare('SELECT id, author, title, content, date FROM housings ORDER BY id DESC');
+    $req->execute();
+    $data = $req->fetchAll(PDO::FETCH_OBJ);
+    return $data;
+    $req->closeCursor();
 }
 
-//Supprimer un commentaire
-function getComment($festivalId, $author, $comment)
+//Récuperer un seul festival
+function getHousing($id)
 {
   require('config/connect.php');
-  $req = $bdd->prepare('DELETE FROM comments (festivalId, author, comment, date) VALUES (?, ?, ?, NOW())');
-  $req->execute(array($festivalId, $author, $comment));
-  $req->closeCursor();
-}
-
-//récuperer les commentaires d'un article.
-function getComments($id)
-{
-  require('config/connect.php');
-  $req = $bdd->prepare('SELECT * FROM comments WHERE festivalId = ?');
+  $req = $bdd->prepare('SELECT * FROM housings WHERE festivalId = ?');
   $req->execute(array($id));
-  $data = $req->fetchAll(PDO::FETCH_OBJ);
+  if($req->rowCount() == 1);
+{
+  $data = $req->fetch(PDO::FETCH_OBJ);
   return $data;
+}
+  // else
+  // header('Location: festival_desc.php');
   $req->closeCursor();
 }
+
+//Récuperer tous les posts_housing
+function getTransports()
+{
+    require('config/connect.php');
+    $req = $bdd->prepare('SELECT id, author, title, content, date FROM transports ORDER BY id DESC');
+    $req->execute();
+    $data = $req->fetchAll(PDO::FETCH_OBJ);
+    return $data;
+    $req->closeCursor();
+}
+
+//Récuperer un seul festival
+function getTransport($id)
+{
+  require('config/connect.php');
+  $req = $bdd->prepare('SELECT * FROM transports WHERE festivalId = ?');
+  $req->execute(array($id));
+  if($req->rowCount() == 1);
+{
+  $data = $req->fetch(PDO::FETCH_OBJ);
+  return $data;
+}
+  // else
+  // header('Location: festival_desc.php');
+  $req->closeCursor();
+}
+//
+// function getComments($id)
+// {
+//   require('config/connect.php');
+//   $req = $bdd->prepare('SELECT * FROM housings WHERE festivalId = ?');
+//   $req->execute(array($id));
+//   $data = $req->fetchAll(PDO::FETCH_OBJ);
+//   return $data;
+//   $req->closeCursor();
+// }
 
  ?>

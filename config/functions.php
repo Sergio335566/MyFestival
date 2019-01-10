@@ -3,7 +3,7 @@
 function getFestivals()
 {
     require('config/connect.php');
-    $req = $bdd->prepare('SELECT id, title, content, photo, date FROM festivals ORDER BY id DESC');
+    $req = $bdd->prepare('SELECT id, title, website, content, photo, date_debut, date_fin FROM festivals ORDER BY id DESC');
     $req->execute();
     $data = $req->fetchAll(PDO::FETCH_OBJ);
     return $data;

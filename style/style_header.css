@@ -1,0 +1,30 @@
+.logo{
+  width:6%;
+  margin-left:5%;
+
+}
+.header{
+text-align: center;
+
+}
+.home{
+  float:left;
+  padding: 10px;
+}
+.register{
+  float:right;
+    padding: 20px;
+}
+
+.sleep{
+  float:right;
+  font-size: 25px;
+  color:black;
+}
+.car{
+  font-size: 25px;
+  color:black;
+}
+.find{
+  padding:3%;
+}

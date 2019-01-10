@@ -10,13 +10,14 @@
 
 }
 
-.festivals{
+.festivals, .transports{
   margin-top:15%;
   background-color: #F9F9F9;
   box-shadow: 10px 20px 76px rgba(44, 75, 153, 0.1);
   border-radius: 20px;
   padding:6%;
 }
+
 a{
   color:#2C4B99;
 }

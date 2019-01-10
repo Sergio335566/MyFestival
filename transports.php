@@ -38,11 +38,16 @@ if(!isset($_GET['id']) OR !is_numeric($_GET['id']))
     </div>
 </div>
 <div class="container">
-  <div class="row">
-    <h1 class="col-12"><?= $transports->title ?></h1>
-    <time class="col-12"><?= $transports->date ?></time>
-    <p class="col-12"><b>Publié par : <?= $transports->author ?></b></p>
-    <p class="col-12"><?= $transports->content ?></p>
+  <div class="row transports">
+      <p class="col-12 date"><time>publié le <?= $transports->date ?></time></p>
+    <h3 class="col-3 title"><?= $transports->title ?></h3>
+    <p class="col-2 nb_places"><?= $transports->nb_places ?></p>
+    <p class="col-3 author"><b><?= $transports->author ?></b></p>
+
+
+    <p class="col-3"><?= $transports->content ?></p>
+
+
   </div>
 </div>
   </body>

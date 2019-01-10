@@ -18,25 +18,28 @@ $festivals = getFestivals();
 <img src="pictures/MYF.png" class="logo" alt="">
 <a class="register" href="registration/register.php">Se connecter <br> Créer un compte</a>
     </div>
-    <!-- <a href="users_posts.php">Publier une offre</a> -->
+
         <?php foreach($festivals as $festival): ?>
+
     <div class="container">
       <div class="row festivals">
       <div class="col-5 post">
       <img class="photo_festival" src="<?= $festival->photo ?>" alt=""></img><br>
             </div>
-            <div class="col-7">
+
+      <div class="col-7">
       <h3 class="col-6"><a href="transports.php?id=<?= $festival->id ?>"> <?= $festival->title ?></a></h3>
       <p class="col-12 date"> <?= $festival->date_debut ?> - <?= $festival->date_fin ?> </p> <br>
       <p class="col-12"><?= $festival->content ?></p>
       <p class="col-12"><a href="<?= $festival->website ?>"> <?= $festival->website ?> </a></p>
       <button type="button" name="button" class=" col-6 btn btn-warning">Trouvez votre transport</button>
           </div>
+
       <br>
       <br>
         </div>
-    <?php  endforeach; ?>
 
+    <?php  endforeach; ?>
     </div>
   </body>
 </html>

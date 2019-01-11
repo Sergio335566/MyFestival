@@ -32,7 +32,8 @@ $festivals = getFestivals();
       <p class="col-12 date"> <?= $festival->date_debut ?> - <?= $festival->date_fin ?> </p> <br>
       <p class="col-12"><?= $festival->content ?></p>
       <p class="col-12"><a href="<?= $festival->website ?>"> <?= $festival->website ?> </a></p>
-      <button type="button" name="button" class=" col-6 btn btn-warning">Trouvez votre transport</button>
+      <a  class="btn btn-danger" href="housing.php?id=<?= $festival->id ?>"> Logements</a>
+      <a  class="btn btn-warning" href="transports.php?id=<?= $festival->id ?>"> Transport</a>
           </div>
 
       <br>

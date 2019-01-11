@@ -45,10 +45,6 @@ if(isset($_POST['register'])){
     <link rel="stylesheet" href="../style/style_contact.css">
   </head>
   <body>
-    <a href="../index.php">retour à l'accueil</a>
-    <div class="header">
-      <h2>Créer un compte</h2>
-    </div>
     <form class="" method="post">
         <div class="input-group">
           <label>Entrez un nom d'utilisateur</label>

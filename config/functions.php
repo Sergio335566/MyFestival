@@ -41,16 +41,10 @@ function getHousings()
 function getHousing($id)
 {
   require('config/connect.php');
-  $req = $bdd->prepare('SELECT * FROM housings WHERE festivalId = ?');
+  $req = $bdd->prepare('SELECT * FROM housings WHERE festivalId = ? ');
   $req->execute(array($id));
-  if($req->rowCount() == 1);
-{
-  $data = $req->fetch(PDO::FETCH_OBJ);
-  return $data;
-}
-  // else
-  // header('Location: festival_desc.php');
-  $req->closeCursor();
+  return $req;
+
 }
 
 //Récuperer tous les posts_housing
@@ -68,26 +62,9 @@ function getTransports()
 function getTransport($id)
 {
   require('config/connect.php');
-  $req = $bdd->prepare('SELECT * FROM transports WHERE festivalId = ?');
+  $req = $bdd->prepare('SELECT * FROM transports WHERE festivalId = ? ');
   $req->execute(array($id));
-  if($req->rowCount() == 1);
-{
-  $data = $req->fetch(PDO::FETCH_OBJ);
-  return $data;
-}
-  // else
-  // header('Location: festival_desc.php');
-  $req->closeCursor();
-}
-//
-// function getComments($id)
-// {
-//   require('config/connect.php');
-//   $req = $bdd->prepare('SELECT * FROM housings WHERE festivalId = ?');
-//   $req->execute(array($id));
-//   $data = $req->fetchAll(PDO::FETCH_OBJ);
-//   return $data;
-//   $req->closeCursor();
-// }
+  return $req;
 
+}
  ?>

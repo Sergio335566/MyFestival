@@ -11,7 +11,7 @@ $festivals = getFestivals();
   </head>
   <body>
     <div class="header">
-    <a href="#" class="home">home</a>
+    <a href="festivals.php" class="home">home</a>
 <img src="pictures/MYF.png" class="logo" alt="">
 <a class="register" href="registration/register.php">Se connecter <br> Créer un compte</a>
     </div>

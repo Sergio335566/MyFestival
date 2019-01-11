@@ -6,20 +6,21 @@ $mysqli = new mysqli('localhost', 'root', "", 'myfestivalbdd') or die(mysqli_err
 $id = 0;
 $update = false;
 $title = '';
-$content = '';
+$festivalId = '';
+$author = '';
 $date = '';
-$place = '';
+$nb_places = '';
 
 
 // Créer un nouveau post
 if(isset($_POST['save'])){
   $title = $_POST['title'];
-  $title = $_POST['title'];
-  $content = $_POST['content'];
+  $festivalId = $_POST['festivalId'];
+  $author = $_POST['author'];
   $date = $_POST['date'];
   $nb_places = $_POST['nb_places'];
-  $mysqli->query("INSERT INTO housings (title, content, date, nb_places)
-  values('$title','$content','$date', '$nb_places') ") or die($mysqli->error);
+  $mysqli->query("INSERT INTO housings (title, festivalId, author, date, nb_places)
+  values('$title','$festivalId','$author','$date', '$nb_places') ") or die($mysqli->error);
 
   $_SESSION['message'] = "Votre publication est desormais en ligne";
   $_SESSION['msg_type'] = "success";
@@ -45,20 +46,20 @@ if(isset($_GET['delete'])){
     if(count($result)==1){
       $row = $result->fetch_array();
       $title = $row['title'];
-      $content = $row['content'];
+      $author = $row['author'];
       $date = $row['date'];
-      $place = $row['place'];
+      $place = $row['nb_places'];
     }
 }
 
 if(isset($_POST['update'])){
     $id = $_POST['id'];
     $title = $_POST['title'];
-    $content = $_POST['content'];
+    $author = $_POST['author'];
     $date = $_POST['date'];
-    $place = $_POST['place'];
+    $place = $_POST['nb_places'];
 
-    $mysqli->query("UPDATE housings SET title='$title', content='$content', date='$date', nb_places='$nb_places' WHERE id=$id") or die($mysqli->error);
+    $mysqli->query("UPDATE housings SET title='$title', author='$author', date='$date', nb_places='$nb_places' WHERE id=$id") or die($mysqli->error);
 
     $_SESSION['message'] = "Votre publication à été mise à jour";
     $_SESSION['msg_type'] = "warning";

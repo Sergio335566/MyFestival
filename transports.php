@@ -1,12 +1,15 @@
 <?php
+    require_once('config/functions.php');
+    $bdd = new PDO('mysql:host=localhost;dbname=myfestivalbdd;charset=utf8', 'root', '');
+    $festival ;
+    $transports ;
+
 if(!isset($_GET['id']) OR !is_numeric($_GET['id']))
   header('Location: festivals.php');
   else
 {
     extract($_GET);
     $id = strip_tags($id);
-
-    require_once('config/functions.php');
 
     if(!empty($_POST))
     {
@@ -15,6 +18,7 @@ if(!isset($_GET['id']) OR !is_numeric($_GET['id']))
 
     $festival = getFestival($id);
     $transports = getTransport($id);
+
 }
  ?>
 
@@ -28,27 +32,41 @@ if(!isset($_GET['id']) OR !is_numeric($_GET['id']))
     <title></title>
   </head>
   <body>
-        <?php include 'header.php';?>
+        <?php include 'style/header.php';?>
     <div class="container">
       <div class="row">
       <div class="col-12 posts">
     <h3><?= $festival->title ?></h3>
     <hr>
     </div>
+    <div class="col-12 new_post">
+    <div class="col-10"></div><a class="new_post" href="users_posts.php">Proposer un trajet</a>
+        </div>
     </div>
 </div>
-<div class="container">
-  <div class="row transports">
-      <p class="col-12 date"><time>publié le <?= $transports->date ?></time></p>
-    <h3 class="col-3 title"><?= $transports->title ?></h3>
-    <p class="col-2 nb_places"><?= $transports->nb_places ?></p>
-    <p class="col-3 author"><b><?= $transports->author ?></b></p>
+<?php
+$count = $bdd->query('SELECT count(id) from transports WHERE festivalId = "'.$id.'"')->fetchColumn();
+$transports_count = 0;
+while($transports_count < $count){
+  $req = $bdd->prepare('SELECT * FROM transports WHERE id = "'.$transports_count.'"');
+  $data = $transports->fetch(PDO::FETCH_OBJ); ?>
+  <div class='container'>
+    <div class='row transports'>
+      <h4 class='col-4 title'> <?= $data->title ?></h4>
+      <p class="col-3 date"> <?= $data->nb_places ?> places</p> <br>
+      <p class="col-3">par <?= $data->author ?></p>
+      <button type="button" name="button" class=" col-2 btn btn-warning">réserver</button>
+      <button type="button" name="button" class=" col-2 btn btn-danger">contacter</button>
+    </div>
+  </div>
+  <?php
+  $transports_count++;
+}
 
-
-    <p class="col-3"><?= $transports->content ?></p>
-
-
+  $transports->closeCursor();
+ ?>
   </div>
 </div>
+
   </body>
 </html>

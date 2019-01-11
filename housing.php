@@ -1,12 +1,15 @@
 <?php
+    require_once('config/functions.php');
+    $bdd = new PDO('mysql:host=localhost;dbname=myfestivalbdd;charset=utf8', 'root', '');
+    $festival ;
+    $transports ;
+
 if(!isset($_GET['id']) OR !is_numeric($_GET['id']))
   header('Location: festivals.php');
   else
 {
     extract($_GET);
     $id = strip_tags($id);
-
-    require_once('config/functions.php');
 
     if(!empty($_POST))
     {
@@ -15,7 +18,7 @@ if(!isset($_GET['id']) OR !is_numeric($_GET['id']))
 
     $festival = getFestival($id);
     $housings = getHousing($id);
-    $transports = getTransport($id);
+
 }
  ?>
 
@@ -29,7 +32,7 @@ if(!isset($_GET['id']) OR !is_numeric($_GET['id']))
     <title></title>
   </head>
   <body>
-        <?php include 'header.php';?>
+        <?php include 'style/header.php';?>
     <div class="container">
       <div class="row">
       <div class="col-12 posts">
@@ -38,13 +41,29 @@ if(!isset($_GET['id']) OR !is_numeric($_GET['id']))
     </div>
     </div>
 </div>
-<div class="container">
-  <div class="row">
-    <h1 class="col-12"><?= $housings->title ?></h1>
-    <time class="col-12"><?= $housings->date ?></time>
-    <p class="col-12"><b>Publié par : <?= $housings->author ?></b></p>
-    <p class="col-12"><?= $housings->content ?></p>
+<?php
+$count = $bdd->query('SELECT count(id) from housings WHERE festivalId = "'.$id.'"')->fetchColumn();
+$housings_count = 0;
+while($housings_count < $count){
+  $req = $bdd->prepare('SELECT * FROM transports WHERE id = "'.$housings_count.'"');
+  $data = $housings->fetch(PDO::FETCH_OBJ); ?>
+  <div class='container'>
+    <div class='row transports'>
+      <h4 class='col-4 title'> <?= $data->title ?></h4>
+      <p class="col-3 date"> <?= $data->nb_places ?> places</p> <br>
+      <p class="col-3">par <?= $data->author ?></p>
+      <button type="button" name="button" class=" col-2 btn btn-danger">réserver</button>
+      <button type="button" name="button" class=" col-2 btn btn-warning">contacter</button>
+    </div>
+  </div>
+  <?php
+  $housings_count++;
+}
+
+  $housings->closeCursor();
+ ?>
   </div>
 </div>
+
   </body>
 </html>

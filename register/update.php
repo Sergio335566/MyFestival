@@ -70,17 +70,17 @@
     <form class="new" action="" method="post">
       <p>Mes informations</p>
               <div class="input-group">
-      <label for="username">pseudo</label> : <input type="text" name="pseudo" id="username" value="<?php echo $users['username']; ?>"> <br>
+      <label for="username">Votre nom d'utilisateur</label> : <input type="text" name="pseudo" id="username" value="<?php echo $users['username']; ?>"> <br>
     </div>
         <div class="input-group">
-      <label for="email">email</label> : <input type="email" name="mail" id="email" value="<?php echo $users['email']; ?>"> <br>
+      <label for="email">Votre Email</label> : <input type="email" name="mail" id="email" value="<?php echo $users['email']; ?>"> <br>
     </div>
   <p>Modifier mon mot de passe</p>
         <div class="input-group">
-      <label for="password">mot de passe</label> : <input type="password" name="password" id="password"> <br>
+      <label for="password">Mot de passe</label> : <input type="password" name="password" id="password"> <br>
     </div>
         <div class="input-group">
-          <label for="password_confirm">confirmer votre mot de passe</label> : <input type="password" name="password_confirm" id="password_confirm"> <br>
+          <label for="password_confirm">Confirmer votre mot de passe</label> : <input type="password" name="password_confirm" id="password_confirm"> <br>
           <div class="col-2">
           </div>
       <button type="submit" name="valid" value="Envoyer" class="col-7 btn btn-danger">Changer mon mot de passe</button>

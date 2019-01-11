@@ -8,7 +8,7 @@ body{
 }
 .connect{
   width:100%;
-  margin:0px;
+  margin-top:25%;
   color:black;
   background:#2c4b9929 0.01;
   box-shadow: 10px 20px 76px rgba(44, 75, 153, 0.1);
@@ -50,7 +50,7 @@ body{
 
 .btn-primary, .btn-danger{
   background-color:#2C4B99;
-  color:#2C4B99;
+  color:white;
   border:0;
 }
 .inline{

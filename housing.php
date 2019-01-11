@@ -40,6 +40,10 @@ if(!isset($_GET['id']) OR !is_numeric($_GET['id']))
     <hr>
     </div>
     </div>
+    <div class="col-1 new_post">
+    <div class="col-10"></div><a class="new_post btn btn-success" href="housings_posts.php?id=<?= $festival->id ?>"">Proposer un logement</a>
+        </div>
+    </div>
 </div>
 <?php
 $count = $bdd->query('SELECT count(id) from housings WHERE festivalId = "'.$id.'"')->fetchColumn();

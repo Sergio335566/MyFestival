@@ -59,7 +59,7 @@
 </div>
 <div class="container">
   <div class="row justify-author-center">
-      <form class="col-6 new" method="POST" action="config/create_housing.php">
+      <form class="col-6 new" method="POST" action="config/create_transport.php">
           <input type="hidden" name="id" value="<?php echo $id; ?>">
           <div class="form-group">
             <label>Votre Offre</label>
@@ -71,7 +71,7 @@
           </div>
           <div class="form-group">
             <label>Auteur</label>
-            <input type="text" name="author" value="<?php echo $author; ?>" class="form-control" placeholder="François">
+            <input type="text" name="author" value="<?php echo $author; ?>" class="form-control" placeholder="Françoisee">
           </div>
           <div class="form-group">
             <label>A partir du </label>

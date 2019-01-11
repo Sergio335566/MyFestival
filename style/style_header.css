@@ -5,16 +5,18 @@
 }
 .header{
 text-align: center;
-
 }
+
 .home{
   float:left;
-  color:black;
-  padding: 10px;
+      width:8%;
+  text-transform: uppercase;
+
 }
 .register{
   float:right;
-    padding: 20px;
+    margin-right: 40px;
+    width:8%;
 }
 
 .sleep{

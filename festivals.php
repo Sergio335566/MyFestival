@@ -8,15 +8,16 @@ $festivals = getFestivals();
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="style/style_index.css">
+    <link rel="stylesheet" href="style/style_festivals.css">
     <link rel="stylesheet" href="style/style_header.css">
     <title>MyFestival</title>
   </head>
   <body>
     <div class="header">
-    <a href="#" class="home">home</a>
-<img src="pictures/MYF.png" class="logo" alt="">
-<a class="register" href="register/register.php">Se connecter <br> Créer un compte</a>
+    <a href="index.php"><img src="pictures/house.svg" class="home" alt=""></a>
+<a href="index.php"><img src="pictures/MYF.png" class="logo" alt=""></a>
+<a href="register/register.php"><img src="pictures/user.svg" class="register" alt=""></a>
+
     </div>
 
         <?php foreach($festivals as $festival): ?>

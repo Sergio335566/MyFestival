@@ -11,9 +11,10 @@ $festivals = getFestivals();
   </head>
   <body>
     <div class="header">
-    <a href="festivals.php" class="home">home</a>
+    <a href="festivals.php"><img src="pictures/house.svg" class="home" alt=""></a>
 <img src="pictures/MYF.png" class="logo" alt="">
-<a class="register" href="registration/register.php">Se connecter <br> Créer un compte</a>
+<a href="register/register.php"><img src="pictures/user.svg" class="register" alt=""></a>
+
     </div>
     <div class="container find">
       <a class="car" href="transports.php?id=<?= $festival->id ?>">Trouver mon trajet</a>

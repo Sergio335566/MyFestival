@@ -39,8 +39,8 @@ if(!isset($_GET['id']) OR !is_numeric($_GET['id']))
     <h3><?= $festival->title ?></h3>
     <hr>
     </div>
-    <div class="col-12 new_post">
-    <div class="col-10"></div><a class="new_post" href="housings_posts.php">Proposer un trajet</a>
+    <div class="col-1 new_post">
+    <div class="col-10"></div><a class="new_post btn btn-success" href="transports_posts.php">Proposer un trajet</a>
         </div>
     </div>
 </div>
@@ -55,7 +55,6 @@ while($transports_count < $count){
       <h4 class='col-4 title'> <?= $data->title ?></h4>
       <p class="col-3 date"> <?= $data->nb_places ?> places</p> <br>
       <p class="col-3">par <?= $data->author ?></p>
-      <button type="button" name="button" class=" col-2 btn btn-warning">réserver</button>
       <button type="button" name="button" class=" col-2 btn btn-danger">contacter</button>
     </div>
   </div>

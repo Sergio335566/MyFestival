@@ -16,7 +16,7 @@ $festivals = getFestivals();
     <div class="header">
     <a href="#" class="home">home</a>
 <img src="pictures/MYF.png" class="logo" alt="">
-<a class="register" href="registration/register.php">Se connecter <br> Créer un compte</a>
+<a class="register" href="register/register.php">Se connecter <br> Créer un compte</a>
     </div>
 
         <?php foreach($festivals as $festival): ?>

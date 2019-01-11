@@ -44,24 +44,30 @@ if(!isset($_GET['id']) OR !is_numeric($_GET['id']))
 <?php
 $count = $bdd->query('SELECT count(id) from housings WHERE festivalId = "'.$id.'"')->fetchColumn();
 $housings_count = 0;
-while($housings_count < $count){
-  $req = $bdd->prepare('SELECT * FROM transports WHERE id = "'.$housings_count.'"');
-  $data = $housings->fetch(PDO::FETCH_OBJ); ?>
-  <div class='container'>
-    <div class='row transports'>
-      <h4 class='col-4 title'> <?= $data->title ?></h4>
-      <p class="col-3 date"> <?= $data->nb_places ?> places</p> <br>
-      <p class="col-3">par <?= $data->author ?></p>
-      <button type="button" name="button" class=" col-2 btn btn-danger">réserver</button>
-      <button type="button" name="button" class=" col-2 btn btn-warning">contacter</button>
+if ($housings_count = 0) {
+echo ('Aucun Festival pour le moment');}
+else {
+  while($housings_count < $count){
+    $req = $bdd->prepare('SELECT * FROM transports WHERE id = "'.$housings_count.'"');
+    $data = $housings->fetch(PDO::FETCH_OBJ); ?>
+    <div class='container'>
+      <div class='row transports'>
+        <h4 class='col-4 title'> <?= $data->title ?></h4>
+        <p class="col-3 date"> <?= $data->nb_places ?> places</p> <br>
+        <p class="col-3">par <?= $data->author ?></p>
+        <!-- <button type="button" name="button" class=" col-2 btn btn-danger">réserver</button> -->
+        <button type="button" name="button" class=" col-2 btn btn-warning">contacter</button>
+      </div>
     </div>
-  </div>
-  <?php
-  $housings_count++;
-}
+    <?php
+    $housings_count++;
+  }
 
-  $housings->closeCursor();
- ?>
+    $housings->closeCursor();
+  }
+   ?>
+
+
   </div>
 </div>
 

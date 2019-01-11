@@ -1,0 +1,91 @@
+*{
+  margin:0;
+  padding:0;
+}
+body{
+  font-size:20px;
+  background:#F8F8FF;
+}
+.connect{
+  width:100%;
+  margin:0px;
+  color:black;
+  background:#2c4b9929 0.01;
+  box-shadow: 10px 20px 76px rgba(44, 75, 153, 0.1);
+  border-radius:20px;
+  padding:30px;
+}
+.new{
+  background:#2c4b9929 0.01;
+  box-shadow: 10px 20px 76px rgba(44, 75, 153, 0.1);
+  width:100%;
+  margin:0px;
+  border-radius:20px;
+  padding:50px;
+}
+
+.input-group {
+  margin : 3px 0px 3px 0px;
+  color:black;
+  font-size:15px;
+}
+
+.input-group label {
+  display: block;
+  margin:3px;
+}
+.input-group input {
+  height:30px;
+  font-size: 15px;
+  width:100%;
+  padding:5px 10px;
+}
+.btn, .btn-primary, .btn-danger{
+  padding:10px;
+  font-size:15px;
+  margin-top:5%;
+  border-radius: 17px;
+  color:white;
+}
+
+.btn-primary, .btn-danger{
+  background-color:#2C4B99;
+  color:#2C4B99;
+  border:0;
+}
+.inline{
+  padding-top:7%;
+  text-align: center;
+  display: inline-flex;
+}
+
+input, input[type = submit], input{
+  background-color:white!important;
+  border-radius: 20px;
+  border:0;
+  border-bottom:0.1px solid black;
+}
+
+
+.logo{
+  width:6%;
+  margin-left:2%;
+  padding-top:3%;
+
+}
+.header{
+text-align: center;
+
+}
+.home{
+  float:left;
+  padding: 3%;
+}
+.register{
+  float:right;
+    padding: 3%;
+}
+h3{
+  padding-bottom:20px;
+  font-size:20px;
+}

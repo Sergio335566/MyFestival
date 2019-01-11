@@ -1,6 +1,6 @@
 
 .posts{
-    text-align:center;
+    background-color: white;
 }
 
 .photo_festival{
@@ -36,4 +36,5 @@ a{
 .new_post{
 display: -webkit-box;
 color:black;
+
 }

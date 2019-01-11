@@ -40,7 +40,7 @@ if(!isset($_GET['id']) OR !is_numeric($_GET['id']))
     <hr>
     </div>
     <div class="col-12 new_post">
-    <div class="col-10"></div><a class="new_post" href="users_posts.php">Proposer un trajet</a>
+    <div class="col-10"></div><a class="new_post" href="housings_posts.php">Proposer un trajet</a>
         </div>
     </div>
 </div>

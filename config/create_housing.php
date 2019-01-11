@@ -25,7 +25,7 @@ if(isset($_POST['save'])){
   $_SESSION['message'] = "Votre publication est desormais en ligne";
   $_SESSION['msg_type'] = "success";
 
-  header("location: users_posts.php");
+  header("location: ../housings_posts.php");
 }
 // Supprimer un post
 if(isset($_GET['delete'])){
@@ -35,7 +35,7 @@ if(isset($_GET['delete'])){
     $_SESSION['message'] = "Votre publication à été supprimée";
     $_SESSION['msg_type'] = "danger";
 
-  header("location: users_posts.php");
+  header("location: ../housings_posts.php");
   }
 
 // Editer un post
@@ -46,25 +46,27 @@ if(isset($_GET['delete'])){
     if(count($result)==1){
       $row = $result->fetch_array();
       $title = $row['title'];
+      $festivalId = $row['festivalId'];
       $author = $row['author'];
       $date = $row['date'];
-      $place = $row['nb_places'];
+      $nb_places = $row['nb_places'];
     }
 }
 
 if(isset($_POST['update'])){
     $id = $_POST['id'];
     $title = $_POST['title'];
+    $festivalId = $_POST['festivalId'];
     $author = $_POST['author'];
     $date = $_POST['date'];
-    $place = $_POST['nb_places'];
+    $nb_places = $_POST['nb_places'];
 
     $mysqli->query("UPDATE housings SET title='$title', author='$author', date='$date', nb_places='$nb_places' WHERE id=$id") or die($mysqli->error);
 
     $_SESSION['message'] = "Votre publication à été mise à jour";
     $_SESSION['msg_type'] = "warning";
 
-  header("location: users_posts.php");
+  header("location: ../housings_posts.php");
 
 }
  ?>

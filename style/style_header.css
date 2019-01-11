@@ -9,6 +9,7 @@ text-align: center;
 }
 .home{
   float:left;
+  color:black;
   padding: 10px;
 }
 .register{
